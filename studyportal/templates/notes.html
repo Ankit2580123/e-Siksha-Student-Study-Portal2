@@ -1,0 +1,45 @@
+ {% include 'header.html' %}
+    <div style="margin-top: 10%"; class="container">
+        <div class="row">
+            <div class="col-md-3">
+                <a href="#">
+                    <div class="card">
+                        <div class="card-header">Title</div>
+                        <div class="card-body">Description</div>
+                        <div class="card-footer mt-auto "><a href="#">
+                            <i class="fa fa-trash fa-2x"></i></a>
+                        </div>
+                    </div>
+                </a>
+            </div>
+    
+            <br><br>
+    
+        </div>
+    </div>
+    <br><br>
+    <div class="container" style="margin-bottom: 10%;">
+        <form method="POST">
+            <fieldset  style="margin-top: 30px;" class="form-group">
+                <legend>Title<span class="text-danger">*</span> </legend> 
+                <input type="text">
+                <legend style="margin-top: 30px;">Create Notes <span class="text-danger">*</span></legend>
+                <textarea name="" id="" cols="60" rows="5"></textarea>
+            </fieldset>
+            <div style="margin-top: 30px;" class="form-group">
+                <button href="" class="btn btn-outline-info" type="submit">
+                    Create
+                </button>
+            </div>
+        </form>
+    </div>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"
+      integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous">
+    </script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
+      integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous">
+    </script>
+
+    {% include 'footer.html' %}

@@ -1,0 +1,669 @@
+<!DOCTYPE html>
+{% load static %}
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    
+    <!-- SEO Meta Tags -->
+    <meta name="description" content="Landing page template built with HTML and Bootstrap 4 for presenting training courses, classes, workshops and for convincing visitors to register using the form.">
+    <meta name="author" content="Inovatik">
+
+    <!-- OG Meta Tags to improve the way the post looks when you share the page on LinkedIn, Facebook, Google+ -->
+	<meta property="og:site_name" content="" /> <!-- website name -->
+	<meta property="og:site" content="" /> <!-- website link -->
+	<meta property="og:title" content=""/> <!-- title shown in the actual shared post -->
+	<meta property="og:description" content="" /> <!-- description shown in the actual shared post -->
+	<meta property="og:image" content="" /> <!-- image link, make sure it's jpg -->
+	<meta property="og:url" content="" /> <!-- where do you want your post to link to -->
+	<meta property="og:type" content="article" />
+
+    <!-- Website Title -->
+    <title>E-Siksha </title>
+    
+    <!-- Styles -->
+    <link href="https://fonts.googleapis.com/css?family=Montserrat:400,400i,600,700,700i&display=swap" rel="stylesheet">
+    <link href="{% static 'css/bootstrap.css' %}" rel="stylesheet">
+   <!-- <link href="{% static 'css/fontawesome-all.css' %}" rel="stylesheet"> -->
+   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.0/css/all.min.css" integrity="sha512-10/jx2EXwxxWqCLX/hHth/vu2KY3jCF70dCQB8TSgNjbCVAC/8vai53GfMDrO2Emgwccf2pJqxct9ehpzG+MTw=="
+    crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link href="{% static 'css/swiper.css' %}" rel="stylesheet">
+	<link href="{% static 'css/magnific-popup.css' %}" rel="stylesheet">
+	<link href="{% static 'css/styles.css' %}" rel="stylesheet">
+	
+	<!-- Favicon  -->
+    <link rel="icon" href="{% static 'images/black logo.png' %}">
+</head>
+<body data-spy="scroll" data-target=".fixed-top">
+    
+    <!-- Preloader -->
+    <div class="spinner-wrapper">
+        <div class="spinner">
+            <div class="bounce1"></div>
+            <div class="bounce2"></div>
+            <div class="bounce3"></div>
+        </div>
+    </div>
+
+    <!-- end of preloader -->
+   
+
+    <!-- Navigation -->
+    <nav class="navbar navbar-expand-lg navbar-dark navbar-custom fixed-top">
+
+        <!-- Text Logo - Use this if you don't have a graphic logo -->
+        <!-- <a class="navbar-brand logo-text page-scroll" href="index.html">Corso</a> -->
+
+        <!-- Image Logo -->
+        <a class="navbar-brand logo-image" href="index.html"><img src="{% static 'images/black logo.png' %}"  alt=""><h4 style="color:#ffc107;">E-Siksha</h4></a> 
+        
+        <!-- Mobile Menu Toggle Button -->
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarsExampleDefault" aria-controls="navbarsExampleDefault" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-awesome fas fa-bars"></span>
+            <span class="navbar-toggler-awesome fas fa-times"></span>
+        </button>
+        <!-- end of mobile menu toggle button -->
+
+        <div class="collapse navbar-collapse" id="navbarsExampleDefault">
+            <ul class="navbar-nav ml-auto">
+                <li class="nav-item">
+                    <a class="nav-link page-scroll" href="#register">REGISTER <span class="sr-only">(current)</span></a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link page-scroll" href="#description">DETAILS</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link page-scroll" href="#service">SERVICES</a>
+                </li>
+
+                <!-- Dropdown Menu -->          
+                
+                <!-- end of dropdown menu -->
+
+                <li class="nav-item">
+                    <a class="nav-link page-scroll" href="#contact">CONTACT</a>
+                </li>
+                <li class="nav-item dropdown">
+                  
+                    <a class="nav-link page-scroll" href="{% url 'login' %}">LOGIN</a>
+                       
+                </li>
+                 {% comment %} {% if 'username' in request.session %} 
+                <a class="nav-link page-scroll" href="{% url 'logout' %}">LOGOUT</a>
+                {% else %}
+
+                <a class="nav-link page-scroll" href="{% url 'login' %}">LOGIN</a>
+                    {% endif %}  {% endcomment %}
+            </ul>
+            <span class="nav-item social-icons">
+                <span class="fa-stack">
+                    <a href="#your-link">
+                        <i class="fas fa-circle fa-stack-2x"></i>
+                        <i class="fab fa-facebook-f fa-stack-1x"></i>
+                    </a>
+                </span>
+                <span class="fa-stack">
+                    <a href="#your-link">
+                        <i class="fas fa-circle fa-stack-2x"></i>
+                        <i class="fab fa-twitter fa-stack-1x"></i>
+                    </a>
+                </span>
+            </span>
+        </div>
+    </nav> <!-- end of navbar -->
+    <!-- end of navigation -->
+
+
+    {% if messages %}
+    {% for msg in messages %}
+    {% if msg.level_tag == "error" %}
+    <div class="alert alert-danger bg-danger text-white" role="alert">
+        {{msg.message}}
+        <button type="button" class="btn-close" data-dismiss="alert" aria-label="Close">X</button>
+    </div>
+    {% else %}
+     <div class="alert alert-success" role="alert">
+        {{msg.message}}
+        <button type="button" class="btn-close" data-dismiss="alert" aria-label="Close">  X</button>
+    </div>
+    {% endif %}
+    
+    {% endfor %}
+    
+    {% endif %}
+    <!-- Header -->
+    <header id="header" class="header">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-12">
+                    <div class="text-container">
+                        <h1>Student Study Portal</h1>
+                        <p class="p-large">Do you feel like you're doing a lot of guess work when it comes to our website? Take the Access all the study materials!</p>
+                        <a class="btn-solid-lg page-scroll" href="#register">REGISTER</a>
+                        <a class="btn-outline-lg page-scroll" href="{% url 'about' %}">DEVELOPERS</a>
+                    </div> <!-- end of text-container -->
+                </div> <!-- end of col -->
+            </div> <!-- end of row -->
+        </div> <!-- end of container -->
+        
+        <!-- Image Slider -->
+        <div class="outer-container">
+            <div class="slider-container">
+                <div class="swiper-container image-slider-1">
+                    <div class="swiper-wrapper">
+                        
+                        <!-- Slide -->
+                        <div class="swiper-slide" >
+                            <img class="img-fluid" src="{% static 'images/details-slide-1.jpg' %}" alt="alternative">
+                        </div>
+                        <!-- end of slide -->
+
+                        <!-- Slide -->
+                        <div class="swiper-slide">
+                            <img class="img-fluid" src="{% static 'images/details-slide-2.jpg' %}" alt="alternative">
+                        </div>
+                        <!-- end of slide -->
+
+                        <!-- Slide -->
+                        <div class="swiper-slide">
+                            <img class="img-fluid" src="{% static 'images/details-slide-3.jpg' %}" alt="alternative">
+                        </div>
+                        <!-- end of slide -->
+
+                    </div> <!-- end of swiper-wrapper -->
+                    
+                    <!-- Add Arrows -->
+                    <div class="swiper-button-next"></div>
+                    <div class="swiper-button-prev"></div>
+                    <!-- end of add arrows -->
+                    
+                </div> <!-- end of swiper-container -->
+            </div> <!-- end of slider-container -->
+        </div> <!-- end of outer-container -->
+        <!-- end of image slider -->
+
+    </header> <!-- end of header -->
+    <!-- end of header -->
+
+
+    <!-- Registration -->
+    <div id="register" class="form-1">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-6">
+                    <div class="text-container">
+                        <h2>Register Using The Form</h2>
+                        <p>It's easy to register in Our Website, just fill out the form and click submit. Then you will be registered for one of the best Educational Portal.</p>
+                        <ul class="list-unstyled li-space-lg">
+                            <li class="media">
+                                <i class="fas fa-square"></i>
+                                <div class="media-body"><strong>Your information</strong> is required to complete the registration</div>
+                            </li>
+                            <li class="media">
+                                <i class="fas fa-square"></i>
+                                <div class="media-body"><strong>It's safe with us</strong> and will not be used for marketing</div>
+                            </li>
+                            <li class="media">
+                                <i class="fas fa-square"></i>
+                                <div class="media-body"><strong>You will receive</strong> a confirmation email in less than 24h</div>
+                            </li>
+                        </ul>
+                    </div> <!-- end of text-container -->
+                </div> <!-- end of col -->
+                <div class="col-lg-6">
+
+                    <!-- Registration Form -->
+                    <div class="form-container">
+                        <form action="{% url 'register' %}"method="POST" enctype="multipart/form-data"  id="registrationForm" data-toggle="validator" data-focus="false">
+                            {% csrf_token %}
+                            <div class="form-group">
+                                <input type="text" class="form-control-input" id="username" name="username" placeholder="username" required>
+                                <label class="label-control" for="username"></label>
+                                <div class="help-block with-errors"></div>
+                            </div>
+                            <div class="form-group">
+                                <input type="text" class="form-control-input" id="mobile_no" name="mobile_no" placeholder="mobile_no" required>
+                                <label class="label-control" for="mobile_no"></label>
+                                <div class="help-block with-errors"></div>
+                            </div>
+                            <div class="form-group">
+                                <input type="email" class="form-control-input" id="email" name="email" placeholder="email" required>
+                                <label class="label-control" for="email"></label>
+                                <div class="help-block with-errors"></div>
+                            </div>
+                           
+                            <div class="form-group">
+                                <input type="password" class="form-control-input" id="password" name="password" placeholder="password" required>
+                                <label class="label-control" for="phone"></label>
+                                <div class="help-block with-errors"></div>
+                            </div>
+
+                            <div class="form-group checkbox">
+                                <input type="checkbox" id="rterms" value="Agreed-to-Terms" name="terms" required>I Agree <a href="privacy-policy.html">Privacy Policy</a> and <a href="terms-conditions.html">Terms & Conditions</a>
+                                <div class="help-block with-errors"></div>
+                            </div>
+                            <div class="form-group">
+                                <button type="submit" class="form-control-submit-button" href=" {% url 'login'  %}">REGISTER</button>
+                            </div>
+                            <div class="form-message">
+                                <div id="rmsgSubmit" class="h3 text-center hidden"></div>
+                            </div>
+                        </form>
+                    </div> <!-- end of form-container -->
+                    <!-- end of registration form -->
+                    
+                </div> <!-- end of col -->
+            </div> <!-- end of row -->
+        </div> <!-- end of container -->
+    </div> <!-- end of form-1 -->
+    <!-- end of registration -->
+
+
+    <!-- Features -->
+    <div class="slider-1">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-12">
+                    <p class="p-small">FEATURED IN</p>
+
+                    <!-- Image Slider -->
+                    <div class="slider-container">
+                        <div class="swiper-container image-slider-2">
+                            <div class="swiper-wrapper">
+                                <div class="swiper-slide">
+                                        <img class="img-fluid" src="{% static 'images/notes.png' %}" alt="alternative">
+                                </div>
+                                <div class="swiper-slide">
+                                        <img class="img-fluid" src="{% static 'images/youtube.png' %}" alt="alternative">
+                                </div>
+                                <div class="swiper-slide">
+                                        <img class="img-fluid" src="{% static 'images/homework.png' %}" alt="alternative">
+                                </div>
+                                <div class="swiper-slide">
+                                        <img class="img-fluid" src="{% static 'images/todo.png' %}" alt="alternative">
+                                </div>
+                                <div class="swiper-slide">
+                                        <img class="img-fluid" src="{% static 'images/books.png' %}" alt="alternative">
+                                </div>
+                                <div class="swiper-slide">
+                                        <img class="img-fluid" src="{% static 'images/Dictionary.png' %}" alt="alternative">
+                                </div>
+                                <div class="swiper-slide">
+                                    <img class="img-fluid" src="{% static 'images/wikipedia.jpg' %}" alt="alternative">
+                            </div>
+                                <div class="swiper-slide">
+                                    <img class="img-fluid" src="{% static 'images/calculator.png' %}" alt="alternative">
+                            </div>
+                            </div> <!-- end of swiper-wrapper -->
+                        </div> <!-- end of swiper container -->
+                    </div> <!-- end of slider-container -->
+                    <!-- end of image slider -->
+
+                </div> <!-- end of col -->
+            </div> <!-- end of row -->
+        </div> <!-- end of container -->
+    </div> <!-- end of slider-1 -->
+    <!-- end of partners -->
+
+
+    <!-- Instructor -->
+    <div  class="basic-1">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-6">
+                    <img class="img-fluid" src="{% static 'images/instructor.jpg' %}" alt="alternative">
+                </div> <!-- end of col -->
+                <div class="col-lg-6">
+                    <div class="text-container">
+                        <h2>Hello Guys, Welcome</h2>
+                        <p>The Student Study Portal is a comprehensive online platform designed to revolutionize the way students learn, collaborate, and excel in their academic pursuits. This abstract provides an overview of the key features and benefits of the portal, highlighting its potential to transform traditional educational practices.</p>
+                        <p>The Student Study Portal Services as a Centralized hub where student can access a wide range of educational resources.</p>
+                    </div> <!-- end of text-container -->
+                </div> <!-- end of col -->
+            </div> <!-- end of row -->
+        </div> <!-- end of container -->
+    </div> <!-- end of basic-1 -->
+    <!-- end of instructor -->
+
+     <!-- Students -->
+     <div class="basic-3" id="description">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-6">
+                    <div class="text-container">
+                        <h2>Who Should Join Our Educational Platform!</h2>
+                        <p>This Platform are very useful for those students who want to explore all things in single platform.</p>
+                        <a class="btn-solid-reg popup-with-move-anim" href="#details-lightbox">LIGHTBOX</a>
+                    </div> <!-- end of text-container -->
+                </div> <!-- end of col -->
+                <div class="col-lg-6">
+                    <img class="img-fluid" src="{% static 'images/students.jpg' %}" alt="alternative">
+                </div> <!-- end of col -->
+            </div> <!-- end of row -->
+        </div> <!-- end of container -->
+    </div> <!-- end of basic-3 -->
+    <!-- end of students -->
+   
+    
+     <!-- Details Lightbox -->
+	<div id="details-lightbox" class="lightbox-basic zoom-anim-dialog mfp-hide">
+        <div class="container">
+            <div class="row">
+                <button title="Close (Esc)" type="button" class="mfp-close x-button">×</button>
+                <div class="col-lg-8">
+                    <div class="image-container">
+                        <img class="img-fluid" src="{% static 'images/details-lightbox.jpg' %}" alt="alternative">
+                    </div> <!-- end of image-container -->
+                </div> <!-- end of col -->
+                <div class="col-lg-4">
+                    <h3>Welcome To E-Siksha</h3>
+                    <hr>
+                    <h5>For everybody</h5>
+                    <p>The platform is dedicates to anyone passionate about the web and in need of improving their current online presence.</p>
+                    <ul class="list-unstyled li-space-lg">
+                        <li class="media">
+                            <i class="fas fa-square"></i><div class="media-body">Create Notes</div>
+                        </li>
+                        <li class="media">
+                            <i class="fas fa-square"></i><div class="media-body">Homework</div>
+                        </li>
+                        <li class="media">
+                            <i class="fas fa-square"></i><div class="media-body">Search Youtube</div>
+                        </li>
+                        <li class="media">
+                            <i class="fas fa-square"></i><div class="media-body">Create Todo Lists</div>
+                        </li>
+                        <li class="media">
+                            <i class="fas fa-square"></i><div class="media-body">Search Books</div>
+                        </li>
+                        <li class="media">
+                            <i class="fas fa-square"></i><div class="media-body">Dictionary</div>
+                        </li>
+                        <li class="media">
+                            <i class="fas fa-square"></i><div class="media-body">Search Wikipedia</div>
+                        </li>
+                        <li class="media">
+                            <i class="fas fa-square"></i><div class="media-body">Access Calculator</div>
+                        </li>
+                    </ul>
+                    <a class="btn-solid-reg mfp-close page-scroll" href="#register">SIGN UP</a> <a class="btn-outline-reg mfp-close as-button" href="#screenshots">BACK</a>
+                </div> <!-- end of col -->
+            </div> <!-- end of row -->
+        </div> <!-- end of container -->
+    </div> <!-- end of lightbox-basic -->
+    <!-- end of details lightbox -->
+
+    <!--Our Services-->
+   <section class="container text-center" id="service">
+       
+        <div class="col-lg-12">
+            <h2>Our Services</h2>
+        </div>
+        <hr> <br>
+        <div class="row">
+          <div class="col-md-3">
+            <a href="#">
+              <div class="card">
+                <img class="card-img-top" src="{% static 'images2/notes.jpg' %}" alt="Notes image">
+                <div class="card-body">
+                  <h4 class="card-title ">
+                    Notes
+                  </h4>
+                  Creating the Notes to refer them later. They are stored permanently until deleted.
+                </div>
+              </div>
+            </a>
+          </div>
+      
+          <div class="col-md-3">
+            <a href="#">
+              <div class="card">
+                <img class="card-img-top" src="{% static 'images2/homework.jpg' %}" alt="Homework Image">
+                <div class="card-body">
+                  <h4 class="card-title ">
+                    Homework
+                  </h4>
+                  Add homeworks and assign them deadlines. They will be displayed prioritised by deadlines.
+                </div>
+              </div>
+            </a>
+          </div>
+          <div class="col-md-3">
+            <a href="#">
+              <div class="card">
+                <img class="card-img-top" src="{% static 'images2/youtube.jpg' %}" alt="Youtube image">
+                <div class="card-body">
+                  <h4 class="card-title ">
+                    Youtube
+                  </h4>
+                  Search Youtube and select your desired video to play it on youtube.
+                </div>
+              </div>
+            </a>
+          </div>
+          <div class="col-md-3">
+            <a href="#">
+              <div class="card">
+                <img class="card-img-top" src="{% static 'images2/todo.jpg' %}" alt="Todo image">
+                <div class="card-body">
+                  <h4 class="card-title ">
+                    To Do
+                  </h4>
+                  Add your to-do lists for your day and remove them as you finish.
+                </div>
+              </div>
+            </a>
+          </div>
+        </div>
+        <br><br><br>
+        <div class="row">
+          <div class="col-md-3 ">
+            <a href="#">
+              <div class="card mt-20">
+                <img class="card-img-top" src="{% static 'images2/books.jpg' %}" alt="Books image">
+                <div class="card-body">
+                  <h4 class="card-title ">
+                    Library
+                  </h4>
+                  Browse books from a list of neatly organised book menu.
+                </div>
+              </div>
+            </a>
+          </div>
+      
+      
+      
+          <div class="col-md-3">
+            <a href="#">
+              <div class="card">
+                <img class="card-img-top" src="{% static 'images2/dictionary.jpg' %}" alt="Dictionary image">
+                <div class="card-body">
+                  <h4 class="card-title ">
+                    Dictionary
+                  </h4>
+                  A vocabulary from a book is troubling you? No problem, enter the word, and the meaning will be displayed
+                  almost instantaneously.
+                </div>
+              </div>
+            </a>
+          </div>
+          <div class="col-md-3">
+            <a href="#">
+              <div class="card">
+                <img class="card-img-top" src="{% static 'images2/wiki.jpg' %}" alt="wikipedia image">
+                <div class="card-body">
+                  <h4 class="card-title ">
+                    WikiPedia
+                  </h4>
+                   Search wikipedia to get fast results.
+        
+                </div>
+              </div>
+            </a>
+          </div>
+      
+      
+          <div class="col-md-3">
+            <a href="#">
+              <div class="card">
+                <img class="card-img-top" src="{% static 'images2/conversion.jpg' %}" alt="Conversion image">
+                <div class="card-body">
+                  <h4 class="card-title ">
+                    Calculator
+                  </h4>
+                  Check out the conversion table, that helps you to convert measurements to more familiar ones of your choice.
+                </div>
+              </div>
+            </a>
+          </div>
+        </div>
+      </section>
+
+    
+                    <!-- Testimonials -->
+    <div class="slider-2">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-12">
+                    <h3>Check our Current Feedback from the Students</h3>
+
+                    <!-- Text Slider -->
+                    <div class="slider-container">
+                        <div class="swiper-container text-slider">
+                            <div class="swiper-wrapper">
+                                
+                                <!-- Slide -->
+                                <div class="swiper-slide">
+                                    <div class="image-wrapper">
+                                        <img class="img-fluid" src="{% static 'images/testimonial-3.jpg' %}" alt="alternative">
+                                    </div> <!-- end of image-wrapper -->
+                                    <div class="text-wrapper">
+                                        <div class="testimonial-text">E-Siksha is very helpful for Students because they provide all study sections and materials provide in single platform.</div>
+                                        <div class="testimonial-author">ANKIT</div>
+                                    </div> <!-- end of text-wrapper -->
+                                </div> <!-- end of swiper-slide -->
+                                <!-- end of slide -->
+
+                                <!-- Slide -->
+                                <div class="swiper-slide">
+                                    <div class="image-wrapper">
+                                        <img class="img-fluid" src="{% static 'images/testimonial-2.jpg' %}" alt="alternative">
+                                    </div> <!-- end of image-wrapper -->
+                                    <div class="text-wrapper">
+                                        <div class="testimonial-text">E-Siksha aims to build the world's largest online knowledge repository for multi-lingual education..</div>
+                                        <div class="testimonial-author">AKASH DEEP</div>
+                                    </div> <!-- end of text-wrapper -->
+                                </div> <!-- end of swiper-slide -->
+                                <!-- end of slide -->
+
+                                <!-- Slide -->
+                                <div class="swiper-slide">
+                                    <div class="image-wrapper">
+                                        <img class="img-fluid" src="{% static 'images/testimonial-3.jpg' %}" alt="alternative">
+                                    </div> <!-- end of image-wrapper -->
+                                    <div class="text-wrapper">
+                                        <div class="testimonial-text">E-Siksha is E-Siksha, there is nothing to dislike about it. it has been best study material for students..</div>
+                                        <div class="testimonial-author">SANDIP</div>
+                                    </div> <!-- end of text-wrapper -->
+                                </div> <!-- end of swiper-slide -->
+                                <!-- end of slide -->
+
+                                <!-- Slide -->
+                                <div class="swiper-slide">
+                                    <div class="image-wrapper">
+                                        <img class="img-fluid" src="{% static 'images/testimonial-4.jpg' %}" alt="alternative">
+                                    </div> <!-- end of image-wrapper -->
+                                    <div class="text-wrapper">
+                                        <div class="testimonial-text">E-Siksha is an Excellent platform for Development knowledge..</div>
+                                        <div class="testimonial-author">SIKSHA</div>
+                                    </div> <!-- end of text-wrapper -->
+                                </div> <!-- end of swiper-slide -->
+                                <!-- end of slide -->
+
+                            </div> <!-- end of swiper-wrapper -->
+                            
+                            <!-- Add Arrows -->
+                            <div class="swiper-button-next"></div>
+                            <div class="swiper-button-prev"></div>
+                            <!-- end of add arrows -->
+
+                        </div> <!-- end of swiper-container -->
+                    </div> <!-- end of slider-container -->
+                    <!-- end of text slider -->
+
+                </div> <!-- end of col -->
+            </div> <!-- end of row -->
+        </div> <!-- end of container -->
+    </div> <!-- end of slider-2 -->
+    <!-- end of testimonials -->
+
+                   
+
+
+    <!-- Contact -->
+    <div style="margin-top: 30px;" id="contact" class="form-3">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-6">
+                    <div class="text-container">
+                        <h2>Contact Details</h2>
+                        <p>For registration questions please get in touch using the contact details below. For any questions use the form.</p>
+                        <h3>Location</h3>
+                        <ul class="list-unstyled li-space-lg">
+                            <li class="media">
+                                <i class="fas fa-map-marker-alt"></i>
+                                <div class="media-body">Brightcode,Lowadih,Ranchi</div>
+                            </li>
+                            <li class="media">
+                                <i class="fas fa-mobile-alt"></i>
+                                <div class="media-body">+917903493441, &nbsp;&nbsp;<i class="fas fa-mobile-alt"></i>&nbsp; +917061523346</div>
+                            </li>
+                            <li class="media">
+                                <i class="fas fa-envelope"></i>
+                                <div class="media-body"><a class="light-gray" href="#">student@gmail.com</a> <i class="fas fa-globe"></i><a class="light-gray" href="#">www.rvscet.com</a></div>
+                            </li>
+                        </ul>
+                    </div> <!-- end of text-container -->
+                </div> <!-- end of col -->
+                <div class="col-lg-6">
+
+                    <!-- Contact Form -->
+                    <form action="#" method="POST" enctype="multipart/form-data"  id="contactForm" data-toggle="validator" data-focus="false">
+                        
+                        <div class="form-group">
+                            <input type="text" class="form-control-input" id="cname" required>
+                            <label class="label-control" for="cname" name="name">Name</label>
+                            <div class="help-block with-errors"></div>
+                        </div>
+                        <div class="form-group">
+                            <input type="email" class="form-control-input" id="cemail" required>
+                            <label class="label-control" for="cemail" name="email">Email</label>
+                            <div class="help-block with-errors"></div>
+                        </div>
+                        <div class="form-group">
+                            <textarea class="form-control-textarea" id="cmessage" required></textarea>
+                            <label class="label-control" for="cmessage" name="message">Your message</label>
+                            <div class="help-block with-errors"></div>
+                        </div>
+                        <div class="form-group checkbox">
+                            <input type="checkbox" id="cterms" value="Agreed-to-Terms" required>I have read and agree to <a href="privacy-policy.html">Privacy Policy</a> and <a href="terms-conditions.html">Terms Conditions</a> 
+                            <div class="help-block with-errors"></div>
+                        </div>
+                        <div class="form-group">
+                            <button type="submit" class="form-control-submit-button">SUBMIT</button>
+                        </div>
+                        <div class="form-message">
+                            <div id="cmsgSubmit" class="h3 text-center hidden"></div>
+                        </div>
+                    </form>
+                    <!-- end of contact form -->
+
+                </div> <!-- end of col -->
+            </div> <!-- end of row -->
+        </div> <!-- end of container -->
+    </div> <!-- end of form-3 -->
+    <!-- end of contact -->
+
+
+  {% include 'footer.html' %}

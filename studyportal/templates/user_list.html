@@ -1,0 +1,33 @@
+
+{% load static %}
+{% include 'header.html' %}
+  <h3 style="text-align: center; margin-top: 10px; text-decoration:underline; font-family: Arial, Helvetica, sans-serif; margin-top: 6%;">Registrations Details</h3>
+  <table style="margin-top: 10px;" class="table table-striped">
+    <thead>
+      <tr>
+        <h2>{{title}}</h2>
+        <th scope="col">#</th>
+        <th scope="col">Username</th>
+        <th scope="col">Mobile Number</th>
+        <th scope="col">Email Id</th>
+        <th scope="col">Password</th>
+        <th>Action</th>
+      </tr>
+    </thead>
+    <tbody>
+      {% for i in data %}
+      <tr>
+        <th scope="row">{{ forloop.counter }}</th>
+        <td>{{ i.username }}</td>
+        <td>{{ i.mobile_no }}</td>
+        <td>{{ i.email }}</td>
+        <td>{{ i.password }}</td>
+        <td>
+          <a class="btn btn-sm btn-primary text-white mr-2" href='{% url 'editUser' i.id %}'>Edit</a>
+          <a class="btn btn-sm btn-danger text-white" href='{% url 'delete_user' i.id %}'>Delete</a>
+        </td>
+      </tr>
+      {% endfor %}
+    </tbody>
+  </table>
+  {% include 'footer.html' %}

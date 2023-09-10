@@ -1,0 +1,18 @@
+{% load static %}
+{% include 'header.html' %}
+                                        <div style="  margin-top: 10%;" class="wrapper">
+                                                            <h1>Edit User</h1>
+                                                            <form action="{% url 'update_user' %}" method="POST" enctype="multipart/form-data">
+                                                                                {% csrf_token %}
+                                                                                <input name="username" type="text" value="{{data.username}}" placeholder="Username">
+                                                                                <input name="mobile_no" type="number" value="{{data.mobile_no}}" placeholder="Mobile-No">
+                                                                                <input name="email" type="email" value="{{data.email}}" placeholder="Email">
+                                                                                <input name="password" type="password" value="{{data.password}}" placeholder="Password">
+                                                                                <input name="editid" type="hidden" value="{{data.id}}">
+                                                                                <button type="submit">Update</button>
+                                                            </form>
+                                                            <div>
+                                                                             
+                                                            </div>
+                                        </div>
+{% include 'footer.html' %}
