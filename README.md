@@ -1,1 +1,2 @@
 # e-Siksha-Student-Study-Portal2
+These is a Simple backend implemented Website during my internship period in Codezeal technology, We are implementing Python web framework Django in backend, and in frontend we are using Libraries of Html, CSS, javaScript, The major Operations we are implemented in our website such as Perfomr CRUD Operations, Login, Registration System, Message Flashback after user login, Create Database table. and Create a seperate page for display the Information of those user whose are registered in Our website, and Learned Django Many types Commands.
